@@ -1,29 +1,68 @@
-## Projeto AgroTech: Controle de Insumos para Cultura de Milho
+# FIAP - Faculdade de Informática e Administração Paulista
 
-Este projeto foi desenvolvido como parte da disciplina "Python e Além" do curso da FIAP.
+# Capítulo 6 — Python e Além  
+## Curso de Inteligência Artificial (Online) — 1TIAOR-2025
 
-## O Problema (A "Dor" do Agronegócio)
+---
 
-O controle de custos e o rastreamento da aplicação de insumos (fertilizantes, herbicidas, etc.) são desafios constantes para produtores rurais. A falta de um registro simples e centralizado pode levar a gastos excessivos, aplicação incorreta de produtos e dificuldade na análise de produtividade de cada talhão (lote da fazenda).
+## 👨‍🎓 Integrantes
+- **Murilo Salla** — RM568041  
 
-## A Solução Proposta
+---
 
-Este programa é um sistema simples (CRUD) que funciona como uma ferramenta para o produtor de milho registrar, consultar e gerenciar todas as aplicações de insumos em sua lavoura. A solução centraliza os dados em um banco de dados Oracle, garantindo a segurança e a integridade das informações.
+## 👩‍🏫 Professores
 
-## Funcionalidades
+### Tutora
+- **Ana Cristina dos Santos**
 
-O sistema oferece as seguintes funcionalidades através de um menu interativo:
+### Coordenador
+- **André Godoi Chiovato**
 
-1.  **Cadastrar Aplicação de Insumo:** Permite registrar uma nova aplicação, informando data, talhão, tipo de insumo, nome do produto e quantidade.
-2.  **Listar Aplicações Registradas:** Exibe na tela todos os registros do banco de dados de forma organizada.
-3.  **Editar um Registro:** Permite corrigir informações de um registro já existente.
-4.  **Excluir um Registro:** Remove um registro incorreto do banco de dados.
-5.  **Exportar para JSON:** Gera um arquivo `relatorio_insumos.json` com todos os dados do banco, facilitando a integração com outros sistemas ou a criação de relatórios.
+---
 
-## Como Executar o Programa
+## 🧠 Descrição
 
-1.  Certifique-se de ter o Python e as bibliotecas `oracledb`, `pandas` e `python-dotenv` instaladas.
-2.  Configure suas credenciais de acesso ao Oracle no arquivo `.env`.
-3.  Execute o programa principal através do terminal PowerShell:
-    python principal.py
-    
+Este repositório contém as implementações e materiais referentes ao **Capítulo 6 — Python e Além**, da disciplina da FIAP — Graduação em Inteligência Artificial.
+
+O objetivo é demonstrar o domínio dos fundamentos de **Python**, boas práticas de estruturação de projeto, uso de **ambiente virtual (venv)**, **variáveis de ambiente (.env)**, e integração com o **GitHub**.
+
+---
+
+## 🗂 Estrutura de pastas
+
+| Pasta | Descrição |
+|--------|------------|
+| `.github/` | Arquivos de configuração do GitHub (actions, workflows etc.) |
+| `assets/` | Imagens e mídias de apoio utilizadas em relatórios e README |
+| `config/` | Arquivos de configuração e exemplos de variáveis de ambiente (`.env.example`) |
+| `document/` | Relatórios, anotações e demais documentos do capítulo |
+| `document/other/` | Materiais complementares (ex.: `Links.txt`) |
+| `scripts/` | Scripts auxiliares (`setup_venv.ps1`, `run_app.ps1`, `schema.sql` etc.) |
+| `src/` | Código-fonte do capítulo (`main.py`, `funcoes.py`) |
+
+---
+
+## ⚙️ Como executar o projeto
+
+### **Pré-requisitos**
+- Python **3.11+**
+- PowerShell ou Terminal do VS Code
+- Git instalado e configurado
+
+---
+
+### **Passo a passo**
+
+```powershell
+# 1. Clonar o repositório
+git clone https://github.com/murilosalla-blip/fiap-fase02-python-e-alem
+cd fiap-fase02-python-e-alem
+
+# 2. Criar e ativar o ambiente virtual
+.\scripts\setup_venv.ps1
+
+# 3. Criar o arquivo .env a partir do exemplo
+copy .\config\.env.example .\.env
+
+# 4. Executar a aplicação
+.\scripts\run_app.ps1
