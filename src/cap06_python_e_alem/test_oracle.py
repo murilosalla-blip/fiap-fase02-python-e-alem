@@ -4,48 +4,38 @@ from pathlib import Path
 from dotenv import load_dotenv
 import oracledb
 
-# Localiza o .env no root do repositório, mesmo rodando fora da raiz
+# localizar o .env na raiz do projeto
 current_file = Path(__file__).resolve()
-project_root = current_file.parents[2]  # cap06_python_e_alem -> src -> <repo root>
+project_root = current_file.parents[2]
 dotenv_path = project_root / ".env"
 
 if dotenv_path.exists():
     load_dotenv(dotenv_path=dotenv_path)
 else:
-    load_dotenv()  # fallback: tenta CWD
+    load_dotenv()
 
 def main():
-    db_user = os.getenv("DB_USER")
-    db_password = os.getenv("DB_PASSWORD")
-    db_dsn = os.getenv("DB_DSN")
+    user = os.getenv("ORACLE_USER")
+    password = os.getenv("ORACLE_PASSWORD")
+    dsn = os.getenv("ORACLE_DSN")
 
-    # Diagnóstico (sem vazar segredos)
-    print("USER:", bool(db_user))
-    print("PASS:", bool(db_password))
-    print("DSN :", bool(db_dsn))
+    print(f"Vars -> USER={bool(user)} PASS={bool(password)} DSN={bool(dsn)}")
 
-    if not all([db_user, db_password, db_dsn]):
-        print("❌ Variáveis ausentes. Verifique seu .env na raiz do repositório.")
-        print("   Esperado no .env: DB_USER=..., DB_PASSWORD=..., DB_DSN=oracle.fiap.com.br:1521/ORCL")
+    if not all([user, password, dsn]):
+        print("❌ Variáveis ausentes. Verifique o .env na raiz do repositório.")
         return
 
     try:
-        # Modo thin (não precisa Instant Client)
-        conn = oracledb.connect(user=db_user, password=db_password, dsn=db_dsn)
-
+        conn = oracledb.connect(user=user, password=password, dsn=dsn)
         with conn.cursor() as cur:
             cur.execute("SELECT 1 FROM DUAL")
-            row = cur.fetchone()
-        print(f"✅ Conexão Oracle bem-sucedida! Teste SELECT -> {row}")
-
-    except oracledb.Error as e:
-        # Mostra código e mensagem do Oracle se disponíveis
-        err_msg = getattr(e, "args", [str(e)])[0]
-        print("❌ Erro ao conectar:", err_msg)
+            print(f"✅ Conexão Oracle bem-sucedida! SELECT -> {cur.fetchone()}")
+    except Exception as e:
+        print("❌ Erro ao conectar:", e)
     finally:
         try:
             conn.close()
-        except Exception:
+        except:
             pass
 
 if __name__ == "__main__":
