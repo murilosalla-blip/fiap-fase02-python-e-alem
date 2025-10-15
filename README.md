@@ -50,6 +50,19 @@ O objetivo é demonstrar o domínio dos fundamentos de **Python**, boas prática
 - Git instalado e configurado
 
 ---
+## 🗄️ Conexão com Oracle Database
+
+O projeto utiliza o pacote **`oracledb`** para se conectar ao banco de dados Oracle da FIAP.
+
+### Exemplo de configuração do `.env`
+Crie um arquivo `.env` na raiz (não versionar) com as credenciais fornecidas pela FIAP:
+
+```ini
+# Exemplo de arquivo .env (NÃO versionar)
+DB_USER=RM568041
+DB_PASSWORD=DtNasc#ddmmaa
+DB_DSN=oracle.fiap.com.br:1521/ORCL
+
 
 ### **Passo a passo**
 
