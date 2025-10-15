@@ -1,0 +1,1 @@
+SELECT * FROM controle_insumos_milho;
