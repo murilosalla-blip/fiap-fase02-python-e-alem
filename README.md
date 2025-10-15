@@ -1,5 +1,7 @@
 # FIAP - Faculdade de Informática e Administração Paulista
 
+🎥 **Demonstração no YouTube:** [Clique aqui para assistir](https://youtu.be/EOJU7vbXAMo)  
+
 ## Nome do Projeto
 Controle de Insumos – Milho (Capítulo 6 - Python e Além)
 
